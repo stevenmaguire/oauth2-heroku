@@ -141,6 +141,7 @@ class HerokuTest extends \PHPUnit_Framework_TestCase
         $postResponse->shouldReceive('getBody')->andReturn($error);
         $postResponse->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
         $postResponse->shouldReceive('getStatusCode')->andReturn($status);
+        $postResponse->shouldReceive('getStatusCode')->andReturn($status);
         $client = m::mock('GuzzleHttp\ClientInterface');
         $client->shouldReceive('send')
             ->times(1)

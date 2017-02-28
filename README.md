@@ -33,6 +33,24 @@ $provider = new Stevenmaguire\OAuth2\Client\Provider\Heroku([
 
 For further usage of this package please refer to the [core package documentation on "Authorization Code Grant"](https://github.com/thephpleague/oauth2-client#usage).
 
+### Refreshing a Token
+
+Once your application is authorized, you can refresh an expired token using a refresh token rather than going through the entire process of obtaining a brand new token. To do so, simply reuse this refresh token from your data store to request a refresh.
+
+```php
+$existingAccessToken = getAccessTokenFromYourDataStore();
+
+if ($existingAccessToken->hasExpired()) {
+    $newAccessToken = $provider->getAccessToken('refresh_token', [
+        'refresh_token' => $existingAccessToken->getRefreshToken()
+    ]);
+
+    // Purge old access token and store new access token to your data store.
+}
+```
+
+For further usage of this package please refer to the [core package documentation on "Refreshing a Token"](https://github.com/thephpleague/oauth2-client#refreshing-a-token).
+
 ## Testing
 
 ``` bash
