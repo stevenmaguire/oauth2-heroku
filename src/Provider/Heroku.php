@@ -72,6 +72,20 @@ class Heroku extends AbstractProvider
     }
 
     /**
+     * Returns the default headers used by this provider.
+     *
+     * Typically this is used to set 'Accept' or 'Content-Type' headers.
+     *
+     * @return array
+     */
+    protected function getDefaultHeaders()
+    {
+      return [
+        'Accept' => 'application/vnd.heroku+json; version=3'
+      ];
+    }
+
+    /**
      * Check a provider response for errors.
      *
      * @throws IdentityProviderException
