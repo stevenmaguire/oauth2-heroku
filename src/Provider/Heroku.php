@@ -80,9 +80,9 @@ class Heroku extends AbstractProvider
      */
     protected function getDefaultHeaders()
     {
-      return [
-        'Accept' => 'application/vnd.heroku+json; version=3'
-      ];
+        return [
+            'Accept' => 'application/vnd.heroku+json; version=3'
+        ];
     }
 
     /**
